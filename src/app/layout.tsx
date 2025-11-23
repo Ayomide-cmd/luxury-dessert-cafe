@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Patisserie Miwa | Artisan Japanese-French Pastries in Lagos",
-  description: "Experience the art of Japanese-French patisserie. Exquisite handcrafted desserts where tradition meets innovation.",
+  title: "Cafe Rosso | Artisan Japanese-French Pastries in Lagos",
+  description: "Exquisite handcrafted desserts where tradition meets innovation.",
 };
 
 export default function RootLayout({
