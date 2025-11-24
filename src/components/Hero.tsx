@@ -88,7 +88,7 @@ export default function Hero() {
         <div className="decor-item absolute top-18 left-16 lg:left-24 w-48 h-48 lg:w-96 lg:h-96 opacity-50 hover:opacity-70 transition-opacity duration-500">
           <div className="absolute inset-0 bg-pink-500/15 blur-3xl rounded-full animate-pulse-slow"></div>
           <Image
-            src="/images/Coffee-bean-left.png"
+            src="/images/coffee-bean-left.png"
             alt=""
             fill
             className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]"
@@ -118,7 +118,7 @@ export default function Hero() {
         <div className="decor-item absolute bottom-28 right-26 lg:right-28 w-60 h-60 lg:w-[22rem] lg:h-[22rem] opacity-40 hover:opacity-60 transition-opacity duration-500">
           <div className="absolute inset-0 bg-pink-400/12 blur-3xl rounded-full animate-pulse-slow animation-delay-3000"></div>
           <Image
-            src="/images/Coffee-bean-right.png"
+            src="/images/coffee-bean-right.png"
             alt=""
             fill
             className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]"
