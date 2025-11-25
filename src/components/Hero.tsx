@@ -85,7 +85,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
-        <div className="decor-item absolute top-18 left-16 lg:left-24 w-48 h-48 lg:w-96 lg:h-96 opacity-50 hover:opacity-70 transition-opacity duration-500">
+        <div className="decor-item absolute top-16 left-16 lg:left-24 w-48 h-48 lg:w-96 lg:h-96 opacity-50 hover:opacity-70 transition-opacity duration-500">
           <div className="absolute inset-0 bg-pink-500/15 blur-3xl rounded-full animate-pulse-slow"></div>
           <Image
             src="/images/coffee-bean-left.png"
@@ -96,7 +96,7 @@ export default function Hero() {
         </div>
 
         <div className="decor-item absolute top-20 right-12 lg:right-24 w-60 h-60 lg:w-72 lg:h-72 opacity-50 hover:opacity-70 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-pink-400/15 blur-3xl rounded-full animate-pulse-slow animation-delay-1000"></div>
+          <div className="absolute inset-0 bg-pink-400/15 blur-3xl rounded-full animate-pulse-slow animation-delay-2000"></div>
           <Image
             src="/images/hero-left-leaf.png"
             alt=""
@@ -115,15 +115,18 @@ export default function Hero() {
           />
         </div>
 
-        <div className="decor-item absolute bottom-28 right-26 lg:right-28 w-60 h-60 lg:w-[22rem] lg:h-[22rem] opacity-40 hover:opacity-60 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-pink-400/12 blur-3xl rounded-full animate-pulse-slow animation-delay-3000"></div>
-          <Image
-            src="/images/coffee-bean-right.png"
-            alt=""
-            fill
-            className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]"
-          />
-        </div>
+      
+        <div className="decor-item absolute bottom-28 right-28 lg:right-28 w-60 h-60 lg:w-[22rem] lg:h-[22rem] opacity-40 hover:opacity-60 transition-opacity duration-500">
+  <div className="absolute inset-0 bg-pink-400/12 blur-3xl rounded-full animate-pulse-slow animation-delay-3000"></div>
+  <Image
+    src="/images/coffee-bean-right.png"
+    alt=""
+    fill
+    className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]"
+  />
+</div>
+
+
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
