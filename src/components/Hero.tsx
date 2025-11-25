@@ -17,8 +17,12 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') setShowNotice(false); };
-    if (showNotice) window.addEventListener('keydown', handleEscape);
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowNotice(false);
+    };
+    if (showNotice) {
+      window.addEventListener('keydown', handleEscape);
+    }
     return () => window.removeEventListener('keydown', handleEscape);
   }, [showNotice]);
 
@@ -31,26 +35,31 @@ export default function Hero() {
         gsap.from(heroElems as unknown as gsap.TweenTarget, {
           opacity: 0,
           y: 40,
-          duration: 1.4,
+          duration: 1.2,
           ease: 'power3.out',
-          stagger: 0.2
+          stagger: 0.15
         });
       }
 
       if (decorElems && decorElems.length > 0) {
+        gsap.from(decorElems as unknown as gsap.TweenTarget, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: 'back.out(1.2)',
+          stagger: 0.1
+        });
+
         decorElems.forEach((el) => {
-          gsap.fromTo(
-            el,
-            { y: 0, rotation: 0 },
-            {
-              y: gsap.utils.random(-15, 15),
-              rotation: gsap.utils.random(-5, 5),
-              duration: gsap.utils.random(4, 6),
-              repeat: -1,
-              yoyo: true,
-              ease: 'sine.inOut'
-            }
-          );
+          gsap.to(el, {
+            y: gsap.utils.random(-15, 15),
+            rotation: gsap.utils.random(-5, 5),
+            duration: gsap.utils.random(4, 6),
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            delay: 0.8
+          });
         });
       }
     }, heroRef);
@@ -63,77 +72,76 @@ export default function Hero() {
       className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a1412] via-[#221816] to-[#1a1412] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.12),transparent_70%)] animate-pulse-slow"></div>
+      
       <div className="absolute inset-0 opacity-[0.015]" style={{
-        backgroundImage: `repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px),
-                          repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px)`
+        backgroundImage: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px)'
       }}></div>
+      
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)] pointer-events-none"></div>
 
-      {/* Decorative Elements */}
-      <div ref={decorRef} className="absolute inset-0 pointer-events-none" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
-        
-        <div className="decor-item absolute top-12 left-4 sm:top-16 sm:left-8 lg:left-24 w-24 h-24 sm:w-40 sm:h-40 lg:w-96 lg:h-96 opacity-50 hover:opacity-70 transition-opacity duration-500">
+      <div 
+        ref={decorRef} 
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      >
+        <div className="decor-item absolute top-8 -left-12 sm:top-12 sm:-left-8 md:top-14 md:left-4 lg:top-16 lg:left-16 xl:left-24 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-35 sm:opacity-40 md:opacity-45 lg:opacity-50 hover:opacity-70 transition-opacity duration-500">
           <div className="absolute inset-0 bg-pink-500/15 blur-3xl rounded-full animate-pulse-slow"></div>
-          <Image src="/images/coffee-bean-left.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" />
+          <Image src="/images/coffee-bean-left.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" priority />
         </div>
 
-        
-        <div className="decor-item absolute top-16 right-4 sm:top-20 sm:right-12 lg:right-24 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 opacity-50 hover:opacity-70 transition-opacity duration-500">
+        <div className="decor-item absolute top-14 -right-10 sm:top-16 sm:-right-6 md:top-20 md:right-2 lg:top-20 lg:right-12 xl:right-24 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 opacity-35 sm:opacity-40 md:opacity-45 lg:opacity-50 hover:opacity-70 transition-opacity duration-500">
           <div className="absolute inset-0 bg-pink-400/15 blur-3xl rounded-full animate-pulse-slow animation-delay-2000"></div>
-          <Image src="/images/hero-left-leaf.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" />
+          <Image src="/images/hero-left-leaf.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" priority />
         </div>
 
-        
-        <div className="decor-item absolute bottom-20 left-4 sm:bottom-42 sm:left-8 lg:left-42 w-38 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 opacity-35 hover:opacity-50 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-pink-300/12 blur-3xl rounded-full animate-pulse-slow animation-delay-2000"></div>
-          <Image src="/images/swirl-decoration.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" />
+        <div className="decor-item absolute bottom-20 -left-16 sm:bottom-24 sm:-left-12 md:bottom-28 md:left-0 lg:bottom-32 lg:left-12 xl:left-28 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 opacity-25 sm:opacity-28 md:opacity-32 lg:opacity-35 hover:opacity-50 transition-opacity duration-500">
+          <div className="absolute inset-0 bg-pink-300/12 blur-3xl rounded-full animate-pulse-slow animation-delay-1000"></div>
+          <Image src="/images/swirl-decoration.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" priority />
         </div>
 
-        {/* Coffee Right */}
-        <div className="decor-item absolute bottom-16 right-4 sm:bottom-38 sm:right-12 lg:right-28 w-32 h-32 sm:w-48 sm:h-48 lg:w-[22rem] lg:h-[22rem] opacity-40 hover:opacity-60 transition-opacity duration-500">
+        <div className="decor-item absolute bottom-16 -right-12 sm:bottom-20 sm:-right-8 md:bottom-24 md:right-0 lg:bottom-26 lg:right-8 xl:right-20 w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80 opacity-30 sm:opacity-33 md:opacity-37 lg:opacity-40 hover:opacity-60 transition-opacity duration-500">
           <div className="absolute inset-0 bg-pink-400/12 blur-3xl rounded-full animate-pulse-slow animation-delay-3000"></div>
-          <Image src="/images/coffee-bean-right.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" />
+          <Image src="/images/coffee-bean-right.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" priority />
         </div>
       </div>
 
-      
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <div className="hero-animate mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-pink-500/20 to-pink-600/20 backdrop-blur-sm border border-pink-400/30 shadow-2xl shadow-pink-500/20 mb-6 hover:scale-110 hover:shadow-pink-500/30 transition-all duration-500 cursor-pointer">
-            <span className="text-4xl"></span>
+        <div className="hero-animate mb-6 md:mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-pink-500/20 to-pink-600/20 backdrop-blur-sm border border-pink-400/30 shadow-2xl shadow-pink-500/20 mb-4 md:mb-6 hover:scale-110 hover:shadow-pink-500/30 transition-all duration-500 cursor-pointer">
+            <span className="text-3xl md:text-4xl">☕</span>
           </div>
         </div>
 
-        <h1 className="hero-animate font-playfair text-6xl md:text-7xl lg:text-8xl xl:text-[8rem] font-light mb-8 tracking-[0.02em] leading-none">
+        <h1 className="hero-animate font-playfair text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8rem] font-light mb-6 md:mb-8 tracking-[0.02em] leading-none">
           <span className="block bg-gradient-to-r from-pink-200 via-pink-100 to-amber-100 bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(236,72,153,0.4)]">
             Café Rosso
           </span>
         </h1>
 
-        <div className="hero-animate flex items-center justify-center gap-4 mb-10">
-          <div className="h-px w-20 md:w-28 bg-gradient-to-r from-transparent via-pink-400/60 to-pink-400/80 shadow-lg shadow-pink-400/20"></div>
+        <div className="hero-animate flex items-center justify-center gap-3 md:gap-4 mb-8 md:mb-10">
+          <div className="h-px w-16 md:w-20 lg:w-28 bg-gradient-to-r from-transparent via-pink-400/60 to-pink-400/80 shadow-lg shadow-pink-400/20"></div>
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-pink-400/90 shadow-lg shadow-pink-400/50 animate-pulse hover:scale-125 transition-transform"></div>
+            <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-pink-400/90 shadow-lg shadow-pink-400/50 animate-pulse hover:scale-125 transition-transform"></div>
             <div className="w-1.5 h-1.5 rounded-full bg-pink-300/80 animate-pulse animation-delay-500 hover:scale-125 transition-transform"></div>
           </div>
-          <div className="h-px w-20 md:w-28 bg-gradient-to-l from-transparent via-pink-400/60 to-pink-400/80 shadow-lg shadow-pink-400/20"></div>
+          <div className="h-px w-16 md:w-20 lg:w-28 bg-gradient-to-l from-transparent via-pink-400/60 to-pink-400/80 shadow-lg shadow-pink-400/20"></div>
         </div>
 
-        <p className="hero-animate font-cormorant text-2xl md:text-3xl lg:text-4xl text-pink-100/90 max-w-2xl mx-auto mb-3 leading-relaxed font-light">
+        <p className="hero-animate font-cormorant text-xl sm:text-2xl md:text-3xl lg:text-4xl text-pink-100/90 max-w-2xl mx-auto mb-2 md:mb-3 leading-relaxed font-light">
           Japanese-French Artisanal Treats
         </p>
-        <p className="hero-animate font-cormorant text-lg md:text-xl text-pink-200/70 mb-16">
+        <p className="hero-animate font-cormorant text-base sm:text-lg md:text-xl text-pink-200/70 mb-12 md:mb-16">
           Made for indulgence in Lagos
         </p>
 
-        <div className="hero-animate mb-16">
+        <div className="hero-animate mb-12 md:mb-16">
           <button
             onClick={() => setShowNotice(true)}
-            className="group relative px-12 py-5 bg-gradient-to-r from-pink-600 to-pink-700 rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(236,72,153,0.5)] hover:scale-105 border border-pink-500/30"
+            className="group relative px-10 md:px-12 py-4 md:py-5 bg-gradient-to-r from-pink-600 to-pink-700 rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(236,72,153,0.5)] hover:scale-105 border border-pink-500/30"
           >
-            <span className="relative z-10 text-white font-semibold tracking-wider text-sm uppercase flex items-center gap-3">
+            <span className="relative z-10 text-white font-semibold tracking-wider text-xs sm:text-sm uppercase flex items-center gap-2 md:gap-3">
               Explore Menu
-              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
@@ -156,11 +164,11 @@ export default function Hero() {
 
       {showNotice && (
         <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in px-4"
           onClick={() => setShowNotice(false)}
         >
           <div 
-            className="relative bg-gradient-to-br from-[#2a2220] to-[#1f1614] p-10 rounded-3xl shadow-2xl border border-pink-500/30 max-w-md w-[90%] text-center animate-scale-in"
+            className="relative bg-gradient-to-br from-[#2a2220] to-[#1f1614] p-8 md:p-10 rounded-3xl shadow-2xl border border-pink-500/30 max-w-md w-full text-center animate-scale-in"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute inset-0 bg-pink-500/10 blur-3xl rounded-3xl"></div>
@@ -175,10 +183,10 @@ export default function Hero() {
             </button>
 
             <div className="relative w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-pink-500/30 to-pink-600/30 flex items-center justify-center border border-pink-400/40 shadow-xl shadow-pink-500/20">
-              <span className="text-3xl"></span>
+              <span className="text-3xl">🍰</span>
             </div>
 
-            <h2 className="relative text-pink-100 text-3xl font-playfair font-semibold mb-3">
+            <h2 className="relative text-pink-100 text-2xl md:text-3xl font-playfair font-semibold mb-3">
               Our Starter Recommendations
             </h2>
 
@@ -186,7 +194,7 @@ export default function Hero() {
               Handpicked favorites to begin your journey
             </p>
 
-            <ul className="relative text-pink-100 text-lg font-cormorant space-y-3 mb-8 text-left">
+            <ul className="relative text-pink-100 text-base md:text-lg font-cormorant space-y-3 mb-8 text-left">
               <li className="flex items-start gap-3 hover:translate-x-2 transition-transform duration-300">
                 <span className="text-pink-400 mt-1">•</span>
                 <span>Whipped Strawberry Milkshake</span>
@@ -220,19 +228,35 @@ export default function Hero() {
       )}
 
       <style jsx>{`
-        @keyframes pulse-slow {0%,100%{opacity:1}50%{opacity:0.6}}
-        @keyframes bounce-slow {0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-        @keyframes fade-in {from{opacity:0}to{opacity:1}}
-        @keyframes scale-in {from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.6; }
+        }
 
-        .animate-pulse-slow {animation:pulse-slow 4s ease-in-out infinite;}
-        .animate-bounce-slow {animation:bounce-slow 2s ease-in-out infinite;}
-        .animate-fade-in {animation:fade-in 0.3s ease-out;}
-        .animate-scale-in {animation:scale-in 0.3s ease-out;}
-        .animation-delay-500 {animation-delay:500ms;}
-        .animation-delay-1000 {animation-delay:1000ms;}
-        .animation-delay-2000 {animation-delay:2000ms;}
-        .animation-delay-3000 {animation-delay:3000ms;}
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes scale-in {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+        .animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
+        .animate-fade-in { animation: fade-in 0.3s ease-out; }
+        .animate-scale-in { animation: scale-in 0.3s ease-out; }
+        
+        .animation-delay-500 { animation-delay: 500ms; }
+        .animation-delay-1000 { animation-delay: 1000ms; }
+        .animation-delay-2000 { animation-delay: 2000ms; }
+        .animation-delay-3000 { animation-delay: 3000ms; }
       `}</style>
     </section>
   );
