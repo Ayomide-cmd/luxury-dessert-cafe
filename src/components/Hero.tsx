@@ -82,36 +82,51 @@ export default function Hero() {
       
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
 
-      
       <div 
         ref={decorRef} 
-        className="absolute inset-0 pointer-events-none hidden md:block"
+        className="absolute inset-0 pointer-events-none"
         style={{ transform: `translateY(${scrollY * 0.4}px)` }} 
       >
-        <div className="decor-item absolute top-8 left-4 md:top-14 md:left-4 lg:top-16 lg:left-16 xl:left-24 w-40 h-40 md:w-56 md:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-30 md:opacity-38 lg:opacity-42 hover:opacity-50 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-pink-500/15 blur-3xl rounded-full animate-pulse-slow"></div>
-          <Image src="/images/coffee-bean-left.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" priority />
+        
+        <div className="md:hidden">
+          <div className="decor-item absolute top-12 -left-8 w-28 h-28 opacity-25">
+            <div className="absolute inset-0 bg-pink-500/10 blur-2xl rounded-full animate-pulse-slow"></div>
+            <Image src="/images/coffee-bean-left.png" alt="" fill className="object-contain filter drop-shadow-[0_0_20px_rgba(236,72,153,0.2)]" sizes="112px" loading="eager" />
+          </div>
+
+          <div className="decor-item absolute top-16 -right-8 w-32 h-32 opacity-25">
+            <div className="absolute inset-0 bg-pink-400/10 blur-2xl rounded-full animate-pulse-slow animation-delay-2000"></div>
+            <Image src="/images/hero-left-leaf.png" alt="" fill className="object-contain filter drop-shadow-[0_0_20px_rgba(236,72,153,0.2)]" sizes="128px" loading="eager" />
+          </div>
         </div>
 
-        <div className="decor-item absolute top-14 right-2 md:top-20 md:right-2 lg:top-20 lg:right-12 xl:right-24 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 opacity-30 md:opacity-38 lg:opacity-42 hover:opacity-50 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-pink-400/15 blur-3xl rounded-full animate-pulse-slow animation-delay-2000"></div>
-          <Image src="/images/hero-left-leaf.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" priority />
-        </div>
+        
+        <div className="hidden md:block">
+          <div className="decor-item absolute top-8 left-4 md:top-14 md:left-4 lg:top-16 lg:left-16 xl:left-24 w-40 h-40 md:w-56 md:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-30 md:opacity-38 lg:opacity-42 hover:opacity-50 transition-opacity duration-500">
+            <div className="absolute inset-0 bg-pink-500/15 blur-3xl rounded-full animate-pulse-slow"></div>
+            <Image src="/images/coffee-bean-left.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" sizes="(min-width: 1280px) 384px, (min-width: 1024px) 320px, (min-width: 768px) 224px, 160px" priority />
+          </div>
 
-        <div className="decor-item absolute bottom-20 left-0 md:bottom-28 md:left-0 lg:bottom-32 lg:left-12 xl:left-48 w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-60 opacity-20 md:opacity-25 lg:opacity-20 hover:opacity-35 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-pink-300/12 blur-3xl rounded-full animate-pulse-slow animation-delay-1000"></div>
-          <Image src="/images/swirl-decoration-v2.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" priority />
-        </div>
+          <div className="decor-item absolute top-14 right-2 md:top-20 md:right-2 lg:top-20 lg:right-12 xl:right-24 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 opacity-30 md:opacity-38 lg:opacity-42 hover:opacity-50 transition-opacity duration-500">
+            <div className="absolute inset-0 bg-pink-400/15 blur-3xl rounded-full animate-pulse-slow animation-delay-2000"></div>
+            <Image src="/images/hero-left-leaf.png" alt="" fill className="object-contain filter drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]" sizes="(min-width: 1280px) 288px, (min-width: 1024px) 256px, (min-width: 768px) 224px, 192px" priority />
+          </div>
 
-        <div className="decor-item absolute bottom-16 right-0 md:bottom-24 md:right-0 lg:bottom-26 lg:right-8 xl:right-20 w-52 h-52 md:w-60 md:h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80 opacity-25 md:opacity-25 lg:opacity-32 hover:opacity-50 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-pink-400/12 blur-3xl rounded-full animate-pulse-slow animation-delay-3000"></div>
-          <Image src="/images/coffee-bean-right.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" priority />
+          <div className="decor-item absolute bottom-20 left-0 md:bottom-28 md:left-0 lg:bottom-32 lg:left-12 xl:left-48 w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-60 opacity-20 md:opacity-25 lg:opacity-20 hover:opacity-35 transition-opacity duration-500">
+            <div className="absolute inset-0 bg-pink-300/12 blur-3xl rounded-full animate-pulse-slow animation-delay-1000"></div>
+            <Image src="/images/swirl-decoration-v2.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" sizes="(min-width: 1280px) 320px, (min-width: 1024px) 288px, (min-width: 768px) 256px, 224px" priority />
+          </div>
+
+          <div className="decor-item absolute bottom-16 right-0 md:bottom-24 md:right-0 lg:bottom-26 lg:right-8 xl:right-20 w-52 h-52 md:w-60 md:h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80 opacity-25 md:opacity-25 lg:opacity-32 hover:opacity-50 transition-opacity duration-500">
+            <div className="absolute inset-0 bg-pink-400/12 blur-3xl rounded-full animate-pulse-slow animation-delay-3000"></div>
+            <Image src="/images/coffee-bean-right.png" alt="" fill className="object-contain filter drop-shadow-[0_0_50px_rgba(236,72,153,0.2)]" sizes="(min-width: 1280px) 320px, (min-width: 1024px) 288px, (min-width: 768px) 240px, 208px" priority />
+          </div>
         </div>
       </div>
 
       
       <div className="relative z-20 w-full max-w-7xl px-6 sm:px-8 md:px-12 lg:px-24">
-        
+       
         <div className="flex flex-col items-center text-center md:hidden space-y-8">
           <h1 className="hero-animate font-playfair text-4xl sm:text-5xl font-light tracking-[0.02em] leading-none">
             <span className="bg-gradient-to-r from-pink-200 via-pink-100 to-amber-100 bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(236,72,153,0.4)]">
