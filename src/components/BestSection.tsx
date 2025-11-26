@@ -26,9 +26,7 @@ export default function NewsletterSection() {
 
       <div className="max-w-4xl mx-auto relative z-10 text-center">
         
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-pink-500/20 to-pink-600/20 backdrop-blur-sm border border-pink-400/30 shadow-2xl shadow-pink-500/20 mb-8 mx-auto">
-          <span className="text-4xl">💌</span>
-        </div>
+        
 
         <h2 className="font-playfair text-5xl md:text-7xl font-bold bg-gradient-to-r from-pink-200 via-pink-100 to-amber-100 bg-clip-text text-transparent mb-6 leading-tight">
           Stay Sweet
