@@ -3,15 +3,9 @@
 import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
 import Image from 'next/image';
 
-const features = [
-  
-  
-  'Handcrafted with precision',
+const features = [ 
   'Fresh daily preparation',
   'Perfectly balanced flavors',
-  'Artful presentation',
-  'Traditional meets modern',
-  'Made with dedication',
 ];
 
 export default function ArtSection() {
@@ -78,17 +72,7 @@ export default function ArtSection() {
                 </div>
               ))}
             </div>
-
-            
-            <div className="mt-12 glass rounded-2xl p-8 border-l-4 border-pink-500">
-              <p className="font-cormorant text-2xl text-brown-800 italic leading-relaxed">
-                "Our master chefs are creators of edible art that honors both 
-                Japanese precision and French elegance here in Lagos Nigeria."
-              </p>
-              <p className="font-poppins text-sm text-brown-600 mt-4">
-                — Pastry Chef Stephanie Adetomiwa
-              </p>
-            </div>
+       
           </div>
 
           
@@ -129,9 +113,7 @@ export default function ArtSection() {
 
         
         <div className="text-center mt-20">
-          <p className="font-playfair text-3xl md:text-4xl text-dark-brown italic">
-           We are master artists who weave creamy, delicious, indulgences. 
-          </p>
+          
         </div>
       </div>
     </section>
