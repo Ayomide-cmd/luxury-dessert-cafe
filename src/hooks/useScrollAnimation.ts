@@ -14,7 +14,7 @@ export const useScrollAnimation = () => {
 
     const element = elementRef.current;
 
-    // Fade in and slide up animation
+    
     gsap.fromTo(
       element,
       {

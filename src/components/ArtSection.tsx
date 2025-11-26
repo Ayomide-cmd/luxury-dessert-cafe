@@ -68,7 +68,7 @@ export default function ArtSection() {
                     </svg>
                   </div>
 
-                  {/* Feature text */}
+                  
                   <h3 className="font-cormorant text-xl font-bold text-dark-brown">
                     {feature}
                   </h3>
@@ -91,7 +91,7 @@ export default function ArtSection() {
             </div>
           </div>
 
-          {/* Right side - Image */}
+          
           <div
             ref={parallaxRef}
             className="relative"
@@ -117,7 +117,7 @@ export default function ArtSection() {
               </div>
             </div>
 
-            {/* Decorative floating elements */}
+            
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-pink-400 rounded-full opacity-30 blur-2xl animate-pulse-slow"></div>
             <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-brown-400 rounded-full opacity-30 blur-2xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
             
